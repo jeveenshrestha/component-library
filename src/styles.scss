@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+$custom-blue-palette: (
+  50: #e4f0ff,
+  100: #d2e6ff,
+  200: #c1d9fd,
+  300: #badaff,
+  400: #d2e6ff,
+  500: #badaff,
+  600: #6087ea,
+  700: #5d79db,
+  800: #5767c7,
+  900: #f3f3f3,
+  contrast: (
+    50: #d8e2f4,
+    100: #badaf4,
+    200: #90caf9,
+    300: #64b5f6,
+    400: #42a5f5,
+    500: #005AFF,
+    600: #0045b6,
+    700: #003480,
+    800: #1565c0,
+    900: #999999,
+  )
+);
+
+$custom-red-palette: (
+  50: #ffe6e4,
+  100: #f7cac5,
+  200: #f2ada8,
+  300: #f3f3f3,
+  contrast: (
+    50: #c91514,
+    100: #9c2110,
+    200: #721407,
+    300: #999999,
+  )
+);
+
+
+// Define a custom theme
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$indigo-palette),
+    accent: mat.define-palette($custom-blue-palette), // Secondary color
+    warn: mat.define-palette(mat.$red-palette),   // Negative (danger/error) color
+  )
+));
+
+// Apply the theme
+@include mat.all-component-themes($custom-theme);
+
+// Define CSS variables for the button
+:root {
+  // Secondary color variants
+  --custom-button-secondary: #{mat.get-color-from-palette($custom-blue-palette, 50)};
+  --custom-button-secondary-hover: #{mat.get-color-from-palette($custom-blue-palette, 400)};
+  --custom-button-secondary-active: #{mat.get-color-from-palette($custom-blue-palette, 500)};
+  --custom-button-secondary-disabled: #{mat.get-color-from-palette($custom-blue-palette, 900)};
+  --custom-button-secondary-rgb: #{mat.get-color-from-palette($custom-blue-palette, 500, 0.3)};
+
+  // Secondary text color variants
+  --custom-button-text: #{mat.get-contrast-color-from-palette($custom-blue-palette, 500)};
+  --custom-button-text-hover: #{mat.get-contrast-color-from-palette($custom-blue-palette, 600)};
+  --custom-button-text-focus: #{mat.get-contrast-color-from-palette($custom-blue-palette, 500)};
+  --custom-button-text-active: #{mat.get-contrast-color-from-palette($custom-blue-palette, 700)};
+  --custom-button-text-disabled: #{mat.get-contrast-color-from-palette($custom-blue-palette, 900)};
+
+  // Negative color variants
+  --custom-button-negative: #{mat.get-color-from-palette(mat.$red-palette, 50)};
+  --custom-button-negative-hover: #{mat.get-color-from-palette(mat.$red-palette, 100)};
+  --custom-button-negative-active: #{mat.get-color-from-palette(mat.$red-palette, 200)};
+  --custom-button-negative-disabled: #{mat.get-color-from-palette(mat.$red-palette, 300)};
+
+   // Negative text color variants
+  --custom-button-negative-text: #{mat.get-contrast-color-from-palette($custom-red-palette, 50)};
+  --custom-button-negative-text-hover: #{mat.get-contrast-color-from-palette($custom-red-palette, 100)};
+  --custom-button-negative-text-focus: #{mat.get-contrast-color-from-palette($custom-red-palette, 50)};
+  --custom-button-negative-text-active: #{mat.get-contrast-color-from-palette($custom-red-palette, 200)};
+  --custom-button-negative-text-disabled: #{mat.get-contrast-color-from-palette($custom-red-palette, 300)};
+  
+  //Typography
+  --font-size-xx-small: 0.875rem;
+  --font-weight-bold: 700;
+  --line-height: 100%;
+  --font-letter-spacing-medium: 0rem;
+}

@@ -1,0 +1,85 @@
+button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: var(--font-size-xx-small);
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height);
+  letter-spacing: var(--font-letter-spacing-medium);
+  cursor: pointer;
+  height: 32px;
+  border: none;
+}
+
+.custom-button {
+  &--default {
+    background-color: var(--custom-button-secondary);
+    color: var(--custom-button-text);
+
+    // Default hover state
+    &:hover {
+      background-color: var(--custom-button-secondary-hover);
+      color: var(--custom-button-text-hover); // Hover text color
+    }
+
+    // Default focus state
+    &:focus {
+      outline: 2px solid var(--custom-button-secondary-active);
+      color: var(--custom-button-text-focus); // Focus text color
+    }
+
+    // Default active state
+    &:active {
+      background-color: var(--custom-button-secondary-active);
+      color: var(--custom-button-text-active); // Active text color
+    }
+
+    // Disabled state
+    &:disabled {
+      background-color: var(--custom-button-secondary-disabled);
+      color: var(--custom-button-text-disabled); // Disabled text color
+      cursor: not-allowed;
+    }
+  }
+
+  // Negative variant
+  &--negative {
+    background-color: var(--custom-button-negative);
+    color: var( --custom-button-negative-text); 
+
+    // Negative hover state
+    &:hover {
+      background-color: var(--custom-button-negative-hover);
+      color: var(
+        --custom-button-negative-text-hover
+      ); // Hover text color for negative variant
+    }
+
+    // Negative focus state
+    &:focus {
+      outline: 2px solid var(--custom-button-secondary-active);
+      color: var(
+        --custom-button-negative-text-focus
+      ); // Focus text color for negative variant
+    }
+
+    // Negative active state
+    &:active {
+      background-color: var(--custom-button-negative-active);
+      color: var(
+        --custom-button-negative-text-active
+      ); // Active text color for negative variant
+    }
+
+    // Negative disabled state
+    &:disabled {
+      background-color: var(--custom-button-negative-disabled);
+      color: var(
+        --custom-button-negative-text-disabled
+      );
+    }
+  }
+}

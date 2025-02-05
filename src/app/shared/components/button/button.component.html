@@ -1,0 +1,6 @@
+<button [ngClass]="'custom-button--' + variant" [disabled]="disabled" (click)="onClickHandle()">
+  @if (icon) {
+    <mat-icon>{{ icon }}</mat-icon>
+  } 
+  <span>{{ label }}</span>
+</button>
