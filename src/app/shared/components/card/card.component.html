@@ -1,0 +1,33 @@
+<mat-card>
+ <mat-card-header><h3>Small demo</h3></mat-card-header>
+  <mat-card-content>
+    @if (isEditing) {
+      <!-- Input field in edit mode -->
+      <mat-form-field appearance="outline">
+        <textarea 
+          matInput 
+          cdkTextareaAutosize
+          [(ngModel)]="contentOfCard" 
+          value="inputValue" 
+          variant="primary"
+        ></textarea>
+      </mat-form-field>
+    }@else {
+      <div>{{ contentOfCard }}</div>
+    }
+    <mat-card-actions>
+      @if (isSaving) {
+        <app-button 
+          label="Saving..." 
+          [disabled]="true"
+        ></app-button>
+      }@else {
+        <app-button
+          [label]="isEditing ? 'Save' : 'Edit'"
+          [icon]="isEditing ? '' : 'editIcon'"
+          (buttonClick)="toggleEdit()"
+        ></app-button>
+      }
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

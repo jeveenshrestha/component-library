@@ -1,19 +1,14 @@
-import { Component } from '@angular/core';
-import { ButtonComponent } from './shared/components/button/button.component';
+import { Component, model } from '@angular/core';
+import { CardComponent } from "./shared/components/card/card.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [CardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'component-library';
-
-  handleEdit(): void {
-    console.log('Edit button clicked.');
-  }
 
   handleDelete(): void {
     console.log('Delete button clicked.');

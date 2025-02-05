@@ -1,5 +1,10 @@
 @use '@angular/material' as mat;
 
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 $custom-blue-palette: (
   50: #e4f0ff,
   100: #d2e6ff,
@@ -37,7 +42,6 @@ $custom-red-palette: (
     300: #999999,
   )
 );
-
 
 // Define a custom theme
 $custom-theme: mat.define-light-theme((
